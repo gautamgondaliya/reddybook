@@ -1,0 +1,238 @@
+.rb-header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1200;
+    background: transparent;
+}
+
+.rb-header {
+    display: flex;
+    width: -webkit-fill-available;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5eeee !important;
+    background-image: url(../assets/Images/headerback.webp);
+    padding: 12px 86px;
+    position: fixed;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    z-index: 1100;
+}
+
+.rb-header-logo {
+    font-weight: bold;
+    font-size: 28px;
+    color: #d4af37;
+    margin-right: 18px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.rb-header-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.rb-header-search input {
+    width: 100%;
+    max-width: 340px;
+    min-width: 80px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 1px 4px #eee;
+    font-size: 16px;
+    transition: max-width 0.2s;
+}
+
+.rb-header-search-icon {
+    margin-left: -32px;
+    color: #888;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.rb-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 18px;
+    margin-right: 35px;
+}
+
+.rb-header-badge {
+    background: #c8002f;
+    color: #fff;
+    border-radius: 0 0 30px 30px;
+    padding: 8px 12px 18px 12px;
+    text-align: center;
+    min-width: 60px;
+}
+
+.rb-header-user {
+    background: #c8002f;
+    color: #fff;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rb-nav {
+    display: flex;
+    align-items: center;
+    background: #232323;
+    padding: 0 8px;
+    height: 44px;
+    overflow-x: auto;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.rb-nav-item {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0 18px;
+    height: 44px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+}
+
+.rb-nav-item .rb-nav-icon {
+    font-size: 22px;
+    margin-right: 7px;
+}
+
+.rb-nav-item.active,
+.rb-nav-item:hover {
+    background: #353535;
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+
+@media (max-width: 900px) {
+    .rb-header-logo {
+        font-size: 20px;
+    }
+    .rb-header-badge {
+        min-width: 48px;
+        padding: 6px 6px 12px 6px;
+    }
+    .rb-header-user {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .rb-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 4px;
+    }
+    .rb-header-logo {
+        margin-right: 0;
+        margin-bottom: 6px;
+        justify-content: center;
+    }
+    .rb-header-search {
+        margin-bottom: 6px;
+    }
+    .rb-header-right {
+        justify-content: center;
+        margin-left: 0;
+    }
+    .rb-nav {
+        padding: 0 2px;
+    }
+    .rb-nav-item {
+        padding: 0 10px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .rb-header {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw !important;
+        background: #181818 !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 0 !important;
+        height: auto !important;
+        box-shadow: none !important;
+        z-index: 1100;
+    }
+    .rb-header-logo {
+        font-size: 20px !important;
+        margin: 8px 0 0 12px !important;
+        color: #ffd700 !important;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    .rb-header-right {
+        margin: 0 12px 0 0 !important;
+        gap: 8px !important;
+        justify-content: flex-end !important;
+    }
+    .rb-header-badge,
+    .rb-header-user {
+        font-size: 13px !important;
+        padding: 4px 8px !important;
+        min-width: 48px !important;
+        border-radius: 8px !important;
+    }
+   
+   
+}
+
+.main-right-side-header{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.main-right-side-balance-and-btn{
+    display: flex;
+    gap: 20px;
+}
+
+@media(min-width:1000px){
+    .rb-header-search-phone{
+        display: none ;
+    }
+}
+
+.rb-header-search-phone {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+
+.rb-header-search-phone input {
+    width: 100%;
+    max-width: 340px;
+    min-width: 80px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 1px 4px #eee;
+    font-size: 16px;
+    transition: max-width 0.2s;
+}
