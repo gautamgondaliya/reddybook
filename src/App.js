@@ -10,6 +10,13 @@ import FootballPage from './components/football/FootballPage';
 import TennisPage from './components/tennis/TennisPage';
 import { Routes, Route } from 'react-router-dom';
 import EventDetailPage from './components/cricket/cricket-event/EventDetailPage';
+import ProfileLayout from './pages/profile/ProfileLayout';
+import ProfileOverview from './pages/profile/ProfileOverview';
+import UnsettledBets from './pages/profile/UnsettledBets';
+import BetHistory from './pages/profile/BetHistory';
+import ProfitLoss from './pages/profile/ProfitLoss';
+import AccountStatement from './pages/profile/AccountStatement';
+import Notifications from './pages/profile/Notifications';
 // Placeholder imports for new components
 // import Header from './components/Header';
 // import Sidebar from './components/Sidebar';
@@ -65,6 +72,17 @@ function App() {
               <div style={{padding: 40, color: '#888'}}>Select a category from the sidebar.</div>
             )
           } />
+          <Route path="/profile" element={<ProfileLayout />}>
+            <Route path="overview" element={<ProfileOverview />} />
+            <Route path="unsettled" element={<UnsettledBets />} />
+            <Route path="history" element={<BetHistory />} />
+            <Route path="profit-loss" element={<ProfitLoss />} />
+            <Route path="statement" element={<AccountStatement />} />
+            <Route path="settings" element={<div>Stake Settings</div>} />
+            <Route path="notifications" element={<Notifications />} />
+            <Route path="language" element={<div>Language Settings</div>} />
+            <Route path="change-password" element={<div>Change Password</div>} />
+          </Route>
         </Routes>
       </div>
     </div>

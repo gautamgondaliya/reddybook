@@ -1,5 +1,5 @@
 .account-dropdown {
-  position: absolute;
+    position: absolute;
     top: 60px;
     right: 0;
     width: 250px;
@@ -171,7 +171,7 @@
     min-height: 36px;
 }
 
-.main-balance-part{
+.main-balance-part {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -179,9 +179,34 @@
     padding-right: 10px;
 }
 
-.exposure-balance-main{
+.exposure-balance-main {
     display: flex;
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.account-dropdown-profile {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+
+/* When profile is shown, adjust the dropdown width */
+
+.account-dropdown-profile+.account-dropdown-signout {
+    margin-top: 0;
+}
+
+.account-dropdown-profile .profile-overview {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+.account-dropdown-profile .detail-row {
+    margin: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
 }
