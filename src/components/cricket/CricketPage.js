@@ -10,6 +10,24 @@ const iconMap = {
   "🎮": <span title="Game" role="img" aria-label="game">🎮</span>,
 };
 
+// Helper function to format date
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const day = date.getDate();
+  const month = months[date.getMonth()];
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const formattedHours = hours % 12 || 12;
+  const formattedMinutes = minutes.toString().padStart(2, '0');
+  
+  return {
+    date: `${day} ${month}`,
+    time: `${formattedHours}:${formattedMinutes} ${ampm}`
+  };
+};
+
 const CricketPage = () => {
   const navigate = useNavigate();
   const [matches, setMatches] = useState(null);
@@ -91,18 +109,12 @@ const CricketPage = () => {
     <div className="cricket-odds-col" key={index}>
       <button 
         className={`cricket-odd-btn cricket-odd-${color}`}
-        style={{
-          backgroundColor: color === 'blue' ? '#E6F3FF' : '#FFE6E6',
-          color: '#333',
-          border: 'none',
-          padding: '8px 16px',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          minWidth: '80px',
-          textAlign: 'center'
+        onClick={(e) => {
+          e.stopPropagation();
+          // Handle odds click
         }}
       >
-        <span>{value}</span>
+        {value}
       </button>
     </div>
   );
@@ -119,9 +131,9 @@ const CricketPage = () => {
           </div>
           <div className="cricket-table-header-right">
             <div className="cricket-odds-header">
-              <div className="stack-1"><span>1</span></div>
-              <div className="stack-1"><span>X</span></div>
-              <div className="stack-1"><span>2</span></div>
+              <div className="stack-1">1</div>
+              <div className="stack-1">X</div>
+              <div className="stack-1">2</div>
             </div>
           </div>
         </div>
@@ -142,9 +154,9 @@ const CricketPage = () => {
           </div>
           <div className="cricket-table-header-right">
             <div className="cricket-odds-header">
-              <div className="stack-1"><span>1</span></div>
-              <div className="stack-1"><span>X</span></div>
-              <div className="stack-1"><span>2</span></div>
+              <div className="stack-1">1</div>
+              <div className="stack-1">X</div>
+              <div className="stack-1">2</div>
             </div>
           </div>
         </div>
@@ -157,16 +169,20 @@ const CricketPage = () => {
     <div className="cricket-table">
       <div className="cricket-table-header-row">
         <div className="cricket-table-header-left">
+        <div className="cricket-header-title-main-yes">
           <span className="cricket-header-icon">🏏</span>
           <span className="cricket-header-title">CRICKET</span>
+          </div>
+          <div className="cricket-main-header-live-virtual">
           <button className="cricket-header-tab active">+ LIVE</button>
           <button className="cricket-header-tab">+ VIRTUAL</button>
+          </div>
         </div>
         <div className="cricket-table-header-right">
           <div className="cricket-odds-header">
-            <div className="stack-1"><span>1</span></div>
-            <div className="stack-1"><span>X</span></div>
-            <div className="stack-1"><span>2</span></div>
+            <div className="stack-1">1</div>
+            <div className="stack-1">X</div>
+            <div className="stack-1">2</div>
           </div>
         </div>
       </div>
@@ -185,22 +201,34 @@ const CricketPage = () => {
               onClick={() => navigate(`/sports-event-detail/${match.event.id}`)}
             >
               <div className="cricket-table-left">
+              <div className="cricket-match-left-main-title-and-time">
                 <div className="cricket-title-section">
                   <div className="cricket-match-title">{match.event.name}</div>
                   <div className="cricket-match-subtitle">({match.competition.name})</div>
                 </div>
                 <div className="cricket-match-status-row">
-                  <span className="cricket-match-status">{match.catalogue.inPlay ? 'LIVE' : 'UPCOMING'}</span>
-                  <span className="cricket-match-date">{new Date(match.event.openDate).toLocaleString()}</span>
-                  <span className="cricket-match-icons">
+                  <span className="cricket-match-status">{match.catalogue.inPlay ? 'LIVE' : ""}</span>
+                  <div className="cricket-match-date">
+                    <div className="date">{formatDate(match.event.openDate).date}</div>
+                    <div className="time">{formatDate(match.event.openDate).time}</div>
+                  </div>
+                  </div>
+                 
+                </div>
+                <div className="cricket-match-tv-f-b">
+                   <span className="cricket-match-icons">
                     {["F", "TV", "BM", "P"].map((icon, i) => (
                       <span key={i} className="cricket-match-icon">{iconMap[icon] || icon}</span>
                     ))}
                   </span>
                 </div>
               </div>
-              <div className="cricket-table-right" style={{ display: 'flex', gap: '4px' }}>
-                {odds.map((value, index) => renderOddsButton(value, colors[index], index))}
+              <div className="cricket-table-right">
+                {odds.map((value, index) => renderOddsButton(
+                  value === "-" ? "-" : Number(value).toFixed(2),
+                  colors[index],
+                  index
+                ))}
               </div>
             </div>
           );

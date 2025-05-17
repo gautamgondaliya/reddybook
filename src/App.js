@@ -38,7 +38,7 @@ function App() {
       <Header />
       <BottomNavBar /> 
       <Sidebar onCategorySelect={setSelectedCategory} />
-      <div style={{ marginLeft: 220, paddingTop: 100 }}>
+      <div className="main-right-side-content-all-main-data">
         {/* Main content area */}
         {showSuccess && (
           <div style={{position: 'fixed', top: 20, left: '50%', transform: 'translateX(-50%)', background: '#2ecc40', color: '#fff', padding: '20px 40px', borderRadius: 8, zIndex: 2000}}>

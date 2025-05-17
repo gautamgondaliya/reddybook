@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .cricket-page {
     padding: 0;
     background: #f7f7fa;
@@ -79,7 +80,7 @@
 
 .cricket-header-tab {
     margin-left: 8px;
-    padding: 2px 14px;
+    padding: 6px 14px;
     border: 1px solid #c8002f;
     background: #fff;
     color: #c8002f;
@@ -102,7 +103,14 @@
 
 .cricket-odds-header {
     display: flex;
-    gap: 32px;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.stack-1 {
+    flex: 1;
+    text-align: center;
     font-weight: bold;
     font-size: 16px;
     color: #222;
@@ -123,6 +131,13 @@
     justify-content: space-between;
 }
 
+.cricket-match-left-main-title-and-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+}
+
 .cricket-title-section {
     display: flex;
     flex-direction: column;
@@ -139,6 +154,7 @@
 .cricket-match-subtitle {
     font-size: 12px;
     color: #888;
+    text-align: start;
 }
 
 .cricket-match-status-row {
@@ -153,16 +169,27 @@
     font-size: 12px;
     color: #27ae60;
     font-weight: 600;
-    
 }
 
 .cricket-match-date {
-    font-size: 11px;
-    margin-left: 8px;
-    color: #434343;
     background: #e3eaf3;
-    width: 50px;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-family: "DM Sans", sans-serif;
     text-align: center;
+    min-width: 37px;
+}
+
+.cricket-match-date .date {
+    font-size: 10px;
+    color: #434343;
+    font-weight: 500;
+}
+
+.cricket-match-date .time {
+    font-size: 9px;
+    color: #434343;
+    font-weight: 500;
 }
 
 .cricket-match-icons {
@@ -203,66 +230,46 @@
 .cricket-table-right {
     flex: 1.5;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    gap: 3px;
-    padding-right: 16px;
+    gap: 4px;
+    padding: 12px 16px;
 }
 
 .cricket-odds-col {
     display: flex;
-    flex-direction: row;
-    gap: 2px;
+    flex: 1;
+    justify-content: center;
 }
 
 .cricket-odd-btn {
-    min-width: 70px;
-    min-height: 32px;
+    width: 100%;
+    min-height: 36px;
     border: none;
-    border-radius: 4px;
+    border-radius: 0;
     font-size: 15px;
     font-weight: 500;
-    margin-bottom: 2px;
     cursor: pointer;
-    background: #b3e0ff;
-    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
 }
 
 .cricket-odd-pink {
-    background: #ffd6e0 !important;
+    background: #ffb4c5 !important;
 }
 
 .cricket-odd-blue {
-    background: #b3e0ff !important;
+    background: #66d1ff !important;
 }
 
 
 /* Responsive */
 
-@media (max-width: 900px) {
-    .cricket-table-header-row,
-    .cricket-table-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .cricket-table-header-right,
-    .cricket-table-right {
-        justify-content: flex-start;
-        padding-right: 0;
-        margin-top: 8px;
-    }
-    .cricket-odds-header{
-            display: flex;
-    align-items: center;
-    width: 100%;
-    }
-    .stack-1{
-        width: 33.33%;
-    text-align: center;
-    line-height: 35px;
-    }
-    .cricket-table-right {
-        gap: 8px;
+@media (max-width: 1100px) {
+    .cricket-table {
+        margin-left: 0px;
     }
 }
 
@@ -270,10 +277,9 @@
     position: relative;
     display: inline-block;
     font-size: 12px;
-    color: #00b386; /* or #27ae60 if you prefer */
+    color: #00b386;
     font-weight: 600;
     letter-spacing: 1px;
-    /* Remove border-bottom if present */
 }
 
 .cricket-match-status::after {
@@ -288,7 +294,15 @@
     border-radius: 2px;
     transform: scaleX(0);
     transform-origin: left;
-    animation: live-underline 1.2s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+    animation: live-underline 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+}
+
+.cricket-odd-btn {
+    padding: 8px 4px;
+    font-size: 14px;
+    min-height: 32px;
+    font-weight: 900;
+    font-family: "DM Sans", sans-serif;
 }
 
 @keyframes live-underline {
@@ -303,5 +317,125 @@
     100% {
         transform: scaleX(1);
         opacity: 1;
+    }
+}
+
+@media (max-width:1000px) {
+    .cricket-table-row {
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+        border-bottom: 1px solid #eee;
+        background: #fff;
+    }
+    .cricket-table-right {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        width: 98%;
+        padding: 8px;
+        gap: 2px;
+    }
+    .cricket-odds-col {
+        width: 100%;
+    }
+    .cricket-match-left-main-title-and-time {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+    }
+    .cricket-table-header-right {
+        display: none;
+    }
+    .cricket-table-header-left {
+        justify-content: space-between;
+        padding: 8px 0px;
+        padding-right: 10px;
+    }
+    
+.cricket-match-status {
+    
+    font-size: 9px;
+   
+}
+}
+
+@media (max-width:700px) {
+    .cricket-match-title {
+        font-size: 10px;
+        text-align: start;
+    }
+    .cricket-match-subtitle {
+        font-size: 8px;
+        color: #888;
+        text-align: start;
+    }
+    .cricket-match-left-main-title-and-time {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 60%;
+    }
+    .cricket-table-right {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        width: 96%;
+        padding: 8px;
+        gap: 2px;
+    }
+    .cricket-match-tv-f-b {
+        scale: .8;
+        width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+    .cricket-odd-btn {
+        font-size: 12px;
+        min-height: 32px;
+        font-weight: 900;
+        font-family: "DM Sans", sans-serif;
+    }
+    .cricket-match-date {
+        background: #e3eaf3;
+        padding: 1px 4px;
+        border-radius: 2px;
+        font-family: "DM Sans", sans-serif;
+        text-align: center;
+        min-width: 35px;
+    }
+}
+
+@media (max-width:400px) {
+    .cricket-header-tab {
+        margin-left: 8px;
+        padding: 5px 8px;
+        border: 1px solid #c8002f;
+        background: #fff;
+        color: #c8002f;
+        border-radius: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .cricket-table-header-left {
+        justify-content: space-between;
+        padding: 8px 0px;
+        padding-right: 10px;
+    }
+    .cricket-header-title {
+        font-size: 14px;
+    }
+}
+
+@media(max-width:350px) {
+    .cricket-main-header-live-virtual {
+        display: flex;
+        flex-direction: row;
+    }
+    .cricket-header-tab {
+        font-size: 10px;
+    }
+    .cricket-header-title {
+        font-size: 14px;
     }
 }

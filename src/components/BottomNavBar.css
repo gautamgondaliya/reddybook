@@ -61,3 +61,27 @@
         display: none;
     }
 } */
+
+@media(max-width: 1000px){
+    .bottom-nav-bar{
+         top: 120px;
+        position: fixed;
+   justify-content: space-between;
+    width: 100%;
+    background: #232323;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    overflow-x: auto;
+    white-space: nowrap;
+    z-index: 1000;
+    border-top: 2px solid #c8002f;
+    padding: 0 0;
+    height: 35px;
+    scrollbar-width: none; 
+    
+    }
+    .bottom-nav-bar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+}
