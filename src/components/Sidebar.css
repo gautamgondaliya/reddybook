@@ -28,14 +28,14 @@
     
     .rb-sidebar-item {
         display: flex;
-        align-items: center;
-        padding: 14px 24px;
-        border-bottom: 1px solid #f0f0f0;
-        cursor: pointer;
-        font-size: 17px;
-        color: #222;
-        background: none;
-        transition: background 0.15s, color 0.15s;
+    align-items: center;
+    padding: 9px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #222;
+    background: none;
+    transition: background 0.15s, color 0.15s;
     }
     
     .rb-sidebar-item .rb-sidebar-icon {
