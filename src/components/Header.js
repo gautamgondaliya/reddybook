@@ -32,6 +32,12 @@ const Header = () => {
     setShowLogin(false);
   };
 
+  const handleLoginClick = () => {
+    setShowLogin(true);
+    // Set the localStorage flag to indicate user interaction
+    localStorage.setItem('modalShouldBeOpen', 'true');
+  };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (userRef.current && !userRef.current.contains(event.target)) {
@@ -100,7 +106,7 @@ const Header = () => {
         ) : (
           <button
            className="login-main-btn-all-app"
-            onClick={() => setShowLogin(true)}
+            onClick={handleLoginClick}
           >
             LOGIN
           </button>
@@ -111,7 +117,10 @@ const Header = () => {
     </header>
     <LoginModal
       open={showLogin}
-      onClose={() => setShowLogin(false)}
+      onClose={() => {
+        setShowLogin(false);
+        localStorage.setItem('modalShouldBeOpen', 'false');
+      }}
       onLogin={handleLogin}
     />
     </>
